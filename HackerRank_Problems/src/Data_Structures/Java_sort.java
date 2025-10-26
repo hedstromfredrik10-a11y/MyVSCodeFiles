@@ -69,17 +69,10 @@ public class Java_sort {
             CGPA.add(cgpa);
         }
 
-        public double getCGPA() {
-            return cgpa;
-        }
-
         public String getName() {
             return name;
         }
 
-        public int getID() {
-            return id;
-        }
     }
 
 }
