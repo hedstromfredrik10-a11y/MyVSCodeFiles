@@ -5,7 +5,8 @@ import View.*;
 
 public class MyApp {
     public static void main(String[] args) {
-        MainFrame mf = new MainFrame();
-        SwingUtilities.invokeLater(() -> new MainFrame());
+        User_1 mf = new User_1();
+        SwingUtilities.invokeLater(() -> new User_1());
+        SwingUtilities.invokeLater(() -> new User_2());
     }
 }
