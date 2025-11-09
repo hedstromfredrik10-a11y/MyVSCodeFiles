@@ -17,9 +17,7 @@ public class Valid_Parentheses {
             flag = false;
         } else {
             for (int i = 0; i < s.length(); i++) {
-                if () {
 
-                }
             }
 
         }
