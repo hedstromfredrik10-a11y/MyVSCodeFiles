@@ -11,7 +11,6 @@ public class Closest_whole_number {
             input = Integer.parseInt(scan.nextLine());
             if (input != 999) {
                 System.out.println("Närmsta heltal är: " + closestWholeNumber(input));
-
             } else {
                 break;
             }
@@ -56,9 +55,17 @@ public class Closest_whole_number {
         }
 
         if (countIncrease < countDecrease) {
-            result = roof;
+            if (input < 0)
+                result = floor;
+            else
+                result = roof;
+
         } else if (countIncrease > countDecrease) {
-            result = floor;
+            if (input < 0)
+                result = roof;
+            else
+                result = floor;
+
         } else if (countIncrease == countDecrease) {
             result = input;
         }

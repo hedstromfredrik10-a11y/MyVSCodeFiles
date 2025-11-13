@@ -1,0 +1,75 @@
+package Problems;
+
+import java.util.Arrays;
+
+// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+// Increment the large integer by one and return the resulting array of digits.
+
+// Example 1:
+
+// Input: digits = [1,2,3]
+// Output: [1,2,4]
+// Explanation: The array represents the integer 123.
+// Incrementing by one gives 123 + 1 = 124.
+// Thus, the result should be [1,2,4].
+// Example 2:
+
+// Input: digits = [4,3,2,1]
+// Output: [4,3,2,2]
+// Explanation: The array represents the integer 4321.
+// Incrementing by one gives 4321 + 1 = 4322.
+// Thus, the result should be [4,3,2,2].
+// Example 3:
+
+// Input: digits = [9]
+// Output: [1,0]
+// Explanation: The array represents the integer 9.
+// Incrementing by one gives 9 + 1 = 10.
+// Thus, the result should be [1,0].
+
+public class Plus_one {
+    public static void main(String[] args) {
+        // int[] digits = { 9, 9, 9 };
+        // int[] digits = { 1, 9, 9 };
+        // int[] digits = { 9 };
+        // int[] digits = { 9, 9 };
+        int[] digits = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+
+        System.out.println(Arrays.toString(plusOne(digits)));
+    }
+
+    public static int[] plusOne(int[] digits) {
+        boolean checkNines = true;
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] != 9) {
+                checkNines = false;
+                i = digits.length;
+            }
+        }
+        int[] newArr;
+
+        if (checkNines) {
+            newArr = new int[digits.length + 1];
+            newArr[0] = 0;
+            for (int i = 1; i < newArr.length; i++) {
+                newArr[i] = digits[i - 1];
+            }
+        } else {
+            newArr = new int[digits.length];
+            for (int i = 0; i < newArr.length; i++) {
+                newArr[i] = digits[i];
+            }
+        }
+
+        for (int i = newArr.length - 1; i >= 0; i--) {
+            if (newArr[i] != 9) {
+                newArr[(i)]++;
+                i = 0;
+            } else {
+                newArr[i] = 0;
+            }
+        }
+        return newArr;
+    }
+}
