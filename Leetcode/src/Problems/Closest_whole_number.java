@@ -7,9 +7,10 @@ public class Closest_whole_number {
         Scanner scan = new Scanner(System.in);
         int input = 0;
         while (input != 999) {
+            System.out.print("Skriv in ett heltal (skriv 999 för att avsluta): ");
             input = Integer.parseInt(scan.nextLine());
             if (input != 999) {
-                System.out.println(closestWholeNumber(input));
+                System.out.println("Närmsta heltal är: " + closestWholeNumber(input));
 
             } else {
                 break;
