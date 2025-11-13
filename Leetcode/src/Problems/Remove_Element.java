@@ -2,8 +2,6 @@ package Problems;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 
 public class Remove_Element {
     public static void main(String[] args) {
@@ -17,30 +15,18 @@ public class Remove_Element {
 
     public static int removeElement(int[] nums, int val) {
         int result = 0;
-        int counter = 0;
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int i : nums) {
             list.add(i);
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (list.get(i) == val) {
-                list.set(i, null);
-            } else {
-                counter++;
-            }
+        list.removeIf(n -> n == val);
+
+        for (int i = 0; i < list.size(); i++) {
+            nums[i] = list.get(i);
+            result++;
         }
-
-        int size = list.size();
-
-        
-
-        System.out.println(list.toString());
-
-        System.out.println(Arrays.toString(nums));
-        result = counter;
-
         return result;
 
     }
