@@ -31,10 +31,10 @@ import java.util.Arrays;
 public class Plus_one {
     public static void main(String[] args) {
         // int[] digits = { 9, 9, 9 };
-        // int[] digits = { 1, 9, 9 };
+        int[] digits = { 1, 9, 9 };
         // int[] digits = { 9 };
         // int[] digits = { 9, 9 };
-        int[] digits = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+        // int[] digits = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
 
         System.out.println(Arrays.toString(plusOne(digits)));
     }
@@ -44,9 +44,10 @@ public class Plus_one {
         for (int i = 0; i < digits.length; i++) {
             if (digits[i] != 9) {
                 checkNines = false;
-                i = digits.length;
+                break;
             }
         }
+
         int[] newArr;
 
         if (checkNines) {
@@ -65,7 +66,7 @@ public class Plus_one {
         for (int i = newArr.length - 1; i >= 0; i--) {
             if (newArr[i] != 9) {
                 newArr[(i)]++;
-                i = 0;
+                break;
             } else {
                 newArr[i] = 0;
             }
