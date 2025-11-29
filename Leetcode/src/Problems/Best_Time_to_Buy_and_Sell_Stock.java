@@ -13,18 +13,17 @@ public class Best_Time_to_Buy_and_Sell_Stock {
     }
 
     public static int maxProfit(int[] prices) {
-        int result = 0;
-        List<Integer> list = new ArrayList<>();
+        int min_val = Integer.MAX_VALUE;
+        int max_profit = 0;
 
-        for (Integer integer : prices) {
-            list.add(integer);
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < min_val) {
+                min_val = prices[i];
+            } else if (prices[i] - min_val > max_profit) {
+                max_profit = prices[i] - min_val;
+            }
         }
 
-        Collections.sort(list);
-
-        int lowest = list.get(0);
-        int highest = list.get(list.size() - 1);
-        
-        return result;
+        return max_profit;
     }
 }
