@@ -1,9 +1,5 @@
 package Problems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Remove_Duplicates_from_Sorted_Array {
     public static void main(String[] args) {
         int[] input = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
@@ -26,40 +22,6 @@ public class Remove_Duplicates_from_Sorted_Array {
         }
 
         return check;
-
-        // ------------------------------------------------------------
-
-        // List<Integer> list = new ArrayList<>();
-        // List<Integer> finalList = new ArrayList<>();
-
-        // for (int i : nums) {
-        //     list.add(i);
-        // }
-
-        // for (int i = 0; i < list.size(); i++) {
-        //     for (int x = (i + 1); x < list.size(); x++) {
-        //         if (list.get(i) == list.get(x)) {
-        //             list.remove(i);
-        //             list.add(i, null);
-        //         }
-        //     }
-        // }
-        // int counter = 0;
-        // for (int i = 0; i < list.size(); i++) {
-        //     if (list.get(i) == null) {
-        //         counter++;
-        //     }
-        // }
-
-        // for (Integer integer : list) {
-        //     if (integer != null) {
-        //         finalList.add(integer);
-        //     }
-        // }
-
-        // int result = list.size() - counter;
-
-        // return result;
 
     }
 }
