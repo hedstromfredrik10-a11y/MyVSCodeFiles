@@ -1,6 +1,8 @@
 package Problems;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 // iven a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 
@@ -20,38 +22,44 @@ import java.util.Arrays;
 
 public class Single_Number {
     public static void main(String[] args) {
-        int[] arr = { 4, 1, 2, 1, 2, };
+        // int[] arr = { 2, 1, 3, 1, 3 };
+        // int[] arr = { 2, 2, 1 };
+        // int[] arr = { 1, 1, 2, 3, 3 };
+        int[] arr = { -336, 513, -560, -481, -174, 101, -997, 40, -527, -784, -283, -336, 513, -560, -481, -174, 101,
+                -997, 40, -527, -784, -283, 354 };
+
         System.out.println(singleNumber(arr));
     }
 
     public static int singleNumber(int[] nums) {
         Arrays.sort(nums);
-        System.out.println(Arrays.toString(nums));
-        System.out.println(nums.length);
         int element = 0;
-        for (int i = 0; i < nums.length - 3; i += 2) {
-            if (nums[i] != nums[i + 1]) {
-                if (checkAnomaly(Integer.valueOf(nums[i]), nums)) {
-                    element = nums[i];
-                    break;
-                } else if (checkAnomaly(Integer.valueOf(nums[i + 1]), nums)) {
-                    element = nums[i + 1];
-                    break;
-                }
-            }
-        }
-        return element;
-    }
+        List<Integer> list = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
 
-    public static boolean checkAnomaly(int input, int[] nums) {
-        boolean check = false;
-        for (int i = 0; i < nums.length; i++) {
-            if (input == nums[i]) {
-                check = false;
-            } else {
-                check = true;
-            }
+        for (int integer : nums) {
+            list.add(integer);
         }
-        return check;
+
+        while (true) {
+            if (list.size() == 1) {
+                element = list.getFirst();
+                break;
+            } else {
+                temp.add(list.get(0));
+                temp.add(list.get(1));
+            }
+
+            if (temp.get(0).compareTo(temp.get(1)) != 0) {
+                list.removeIf(n -> n == list.get(2));
+            } else {
+                temp.clear();
+                list.remove(0);
+                list.remove(0);
+            }
+
+        }
+
+        return element;
     }
 }
