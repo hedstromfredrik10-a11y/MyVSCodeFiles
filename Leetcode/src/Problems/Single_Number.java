@@ -22,11 +22,11 @@ import java.util.List;
 
 public class Single_Number {
     public static void main(String[] args) {
-        // int[] arr = { 2, 1, 3, 1, 3 };
+        int[] arr = { 2, 1, 3, 1, 3 };
         // int[] arr = { 2, 2, 1 };
         // int[] arr = { 1, 1, 2, 3, 3 };
-        int[] arr = { -336, 513, -560, -481, -174, 101, -997, 40, -527, -784, -283, -336, 513, -560, -481, -174, 101,
-                -997, 40, -527, -784, -283, 354 };
+        // int[] arr = { -336, 513, -560, -481, -174, 101, -997, 40, -527, -784, -283, -336, 513, -560, -481, -174, 101,
+        //         -997, 40, -527, -784, -283, 354 };
 
         System.out.println(singleNumber(arr));
     }
@@ -51,7 +51,8 @@ public class Single_Number {
             }
 
             if (temp.get(0).compareTo(temp.get(1)) != 0) {
-                list.removeIf(n -> n == list.get(2));
+                int delete = list.get(2);
+                list.removeIf(n -> n == delete);
             } else {
                 temp.clear();
                 list.remove(0);
