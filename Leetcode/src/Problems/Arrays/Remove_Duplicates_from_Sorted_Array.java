@@ -1,4 +1,4 @@
-package Problems;
+package Problems.Arrays;
 
 public class Remove_Duplicates_from_Sorted_Array {
     public static void main(String[] args) {

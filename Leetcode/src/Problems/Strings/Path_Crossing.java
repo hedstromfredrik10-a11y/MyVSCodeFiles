@@ -1,4 +1,4 @@
-package Problems;
+package Problems.Strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,7 +61,6 @@ public class Path_Crossing {
             case 'E':
                 coordinates[0]++;
                 break;
-
             default:
                 break;
         }

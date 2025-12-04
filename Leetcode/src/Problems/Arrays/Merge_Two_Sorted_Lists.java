@@ -1,4 +1,4 @@
-package Problems;
+package Problems.Arrays;
 
 import java.util.Collections;
 import java.util.LinkedList;

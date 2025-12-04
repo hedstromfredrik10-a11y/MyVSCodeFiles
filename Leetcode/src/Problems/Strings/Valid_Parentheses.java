@@ -1,4 +1,4 @@
-package Problems;
+package Problems.Strings;
 
 import java.util.Arrays;
 
