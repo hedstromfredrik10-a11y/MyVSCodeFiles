@@ -23,8 +23,8 @@ package Problems.Strings;
 public class Lexicographically_Smallest_Palindrome {
     public static void main(String[] args) {
         // String input = "egcfe";
-        String input = "abcd";
-        // String input = "seven";
+        // String input = "abcd";
+        String input = "seven";
 
         System.out.println(makeSmallestPalindrome(input));
 
