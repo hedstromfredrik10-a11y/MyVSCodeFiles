@@ -22,9 +22,9 @@ package Problems.Strings;
 
 public class Lexicographically_Smallest_Palindrome {
     public static void main(String[] args) {
-        // String input = "egcfe";
+        String input = "egcfe";
         // String input = "abcd";
-        String input = "seven";
+        // String input = "seven";
 
         System.out.println(makeSmallestPalindrome(input));
 
@@ -33,16 +33,13 @@ public class Lexicographically_Smallest_Palindrome {
     public static String makeSmallestPalindrome(String s) {
         String result = "";
         char[] arr = s.toCharArray();
-        int nbrOfMoves = 0;
 
         for (int i = 0, j = arr.length - 1; i < arr.length / 2; i++, j--) {
             if (arr[i] != arr[j]) {
                 if (arr[i] < arr[j]) {
                     arr[j] = arr[i];
-                    nbrOfMoves++;
                 } else if (arr[i] > arr[j]) {
                     arr[i] = arr[j];
-                    nbrOfMoves++;
                 }
             }
         }

@@ -35,9 +35,6 @@ public class Check_if_Two_Chessboard_Squares_Have_the_Same_Color {
         int[] x_yCoordinate1 = checkLetterCoordinate(coordinate1);
         int[] x_yCoordinate2 = checkLetterCoordinate(coordinate2);
 
-        System.out.println(Arrays.toString(x_yCoordinate1));
-        System.out.println(Arrays.toString(x_yCoordinate2));
-
         for (int i = 0; i <= 7; i = i + 2) {
             for (int j = 0; j <= 7; j++) {
                 if (j % 2 == 0) {
@@ -58,13 +55,7 @@ public class Check_if_Two_Chessboard_Squares_Have_the_Same_Color {
             }
         }
 
-        String s = chessBoard[x_yCoordinate1[0]][x_yCoordinate1[1]];
-        String s2 = chessBoard[x_yCoordinate2[0]][x_yCoordinate2[1]];
-
-        System.out.println(s);
-        System.out.println(s2);
-
-        if (chessBoard[x_yCoordinate1[0]][x_yCoordinate1[1]] == chessBoard[x_yCoordinate2[0]][x_yCoordinate2[1]]) {
+        if (chessBoard[x_yCoordinate1[0]][x_yCoordinate1[1]].equals(chessBoard[x_yCoordinate2[0]][x_yCoordinate2[1]])) {
             result = true;
         }
 
@@ -74,39 +65,9 @@ public class Check_if_Two_Chessboard_Squares_Have_the_Same_Color {
 
     public static int[] checkLetterCoordinate(String input) {
         int[] x_y = new int[2];
-
-        switch (input.charAt(0)) {
-            case 'a':
-                x_y[0] = 0;
-                break;
-            case 'b':
-                x_y[0] = 1;
-                break;
-            case 'c':
-                x_y[0] = 2;
-                break;
-            case 'd':
-                x_y[0] = 3;
-                break;
-            case 'e':
-                x_y[0] = 4;
-                break;
-            case 'f':
-                x_y[0] = 5;
-                break;
-            case 'g':
-                x_y[0] = 6;
-                break;
-            case 'h':
-                x_y[0] = 7;
-                break;
-            default:
-                break;
-        }
-
-        x_y[1] = input.charAt(1) - '0' - 1;
+        x_y[0] = input.charAt(0) - 'a';
+        x_y[1] = input.charAt(1) - '1';
 
         return x_y;
     }
-
 }

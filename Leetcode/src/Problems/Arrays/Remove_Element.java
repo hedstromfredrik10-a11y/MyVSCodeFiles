@@ -1,7 +1,6 @@
 package Problems.Arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Remove_Element {
     public static void main(String[] args) {

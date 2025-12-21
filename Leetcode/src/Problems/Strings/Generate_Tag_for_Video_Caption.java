@@ -31,8 +31,7 @@ package Problems.Strings;
 
 public class Generate_Tag_for_Video_Caption {
     public static void main(String[] args) {
-        // String input = "can I Go There";
-        String input = " fPysaRtLQLiMKVvRhMkkDLNedQKffPnCjbITBTOVhoVjiKbfSawvpisDaNzXJctQkn";
+        String input = "can I Go There";
         System.out.println(generateTag(input));
     }
 
@@ -49,8 +48,8 @@ public class Generate_Tag_for_Video_Caption {
         for (String string : arr) {
             toCamelCaseForVideo.append(string.substring(0, 1).toUpperCase())
                     .append(string.substring(1, string.length()).toLowerCase());
-            toCamelCaseForVideo.replace(0, 1, String.valueOf(Character.toLowerCase(caption.charAt(0))));
         }
+        toCamelCaseForVideo.replace(0, 1, String.valueOf(Character.toLowerCase(caption.charAt(0))));
 
         String result = toCamelCaseForVideo.toString().replaceAll("[^a-zA-Z]", "");
 
