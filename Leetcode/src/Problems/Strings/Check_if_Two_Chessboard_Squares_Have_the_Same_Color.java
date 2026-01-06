@@ -20,10 +20,15 @@ import java.util.Arrays;
 
 public class Check_if_Two_Chessboard_Squares_Have_the_Same_Color {
     public static void main(String[] args) {
-        String coordinate1 = "h7";
+        String coordinate1 = "h6";
         String coordinate2 = "c8";
 
         System.out.println(checkTwoChessboards(coordinate1, coordinate2));
+
+        int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        int[] arr2 = Arrays.copyOfRange(arr, 0, arr.length / 2);
+
+        // System.out.println(Arrays.toString(arr2));
 
     }
 

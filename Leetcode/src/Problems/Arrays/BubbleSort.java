@@ -1,18 +1,26 @@
 package Problems.Arrays;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] arr = { 5, 3, 7, 9, 4, 2, 7, 8, 6, 4, 3, 6, 5, 19, 6, 80, 34, 2, 6 };
-        // int[] arr = { 6, 1, 8, 3, 7 };
+        int[] arr = new int[50];
+        Random gen = new Random();
+
+        for (int i = 0; i < arr.length; i++) {
+            int randomNumber = gen.nextInt(500);
+            arr[i] = randomNumber;
+        }
+        System.out.println(Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
 
-        System.out.println(sumOddNumbers(100));
+        // System.out.println(sumOddNumbers(100));
 
-        System.out.println(sum(3));
+        // System.out.println(sum(3));
 
     }
 
