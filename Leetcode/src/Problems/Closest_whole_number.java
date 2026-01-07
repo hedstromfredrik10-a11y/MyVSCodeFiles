@@ -21,56 +21,16 @@ public class Closest_whole_number {
     }
 
     public static int closestWholeNumber(int input) {
-        int roof = input;
-        int floor = input;
-        int countIncrease = 0;
-        int countDecrease = 0;
-        int result = 0;
-        boolean checkIncrease = false;
-        boolean checkDecrease = false;
+        int modulusResult = 0;
+        modulusResult = input % 10;
 
-        while (true) {
-            if (checkIncrease == false) {
-                roof++;
-                countIncrease++;
-            }
-
-            if (checkDecrease == false) {
-                floor--;
-                countDecrease++;
-            }
-
-            if (roof % 10 == 0) {
-                checkIncrease = true;
-            }
-
-            if (floor % 10 == 0) {
-                checkDecrease = true;
-            }
-
-            if ((checkIncrease == true) && (checkDecrease == true)) {
-                break;
-            }
-
+        if (modulusResult >= 5) {
+            input += 10 - modulusResult;
+        } else {
+            input -= modulusResult;
         }
 
-        if (countIncrease < countDecrease) {
-            if (input < 0)
-                result = floor;
-            else
-                result = roof;
-
-        } else if (countIncrease > countDecrease) {
-            if (input < 0)
-                result = roof;
-            else
-                result = floor;
-
-        } else if (countIncrease == countDecrease) {
-            result = input;
-        }
-
-        return result;
+        return input;
 
     }
 }

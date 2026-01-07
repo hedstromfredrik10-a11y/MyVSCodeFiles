@@ -1,12 +1,31 @@
 package Problems;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Tenta_mostVowels {
     public static void main(String[] args) {
         String a = "Hej världen";
-        String b = "Måsvinge";
+        System.out.println(countVowels(a));
 
-        System.out.println(mostVowelWord(a, b));
+        List<Integer> list = new LinkedList<>();
+        
+    }
 
+    public static int countVowels(String s) {
+        int count = 0;
+
+        String[] vowels = { "a", "o", "u", "å", "e", "i", "y", "ä", "ö" };
+
+        for (int i = 0; i < s.length(); i++) {
+            for (int x = 0; x < vowels.length; x++) {
+                if (Character.toString(s.charAt(i)).equalsIgnoreCase(vowels[x])) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
     }
 
     public static String mostVowelWord(String a, String b) {
@@ -23,19 +42,4 @@ public class Tenta_mostVowels {
         return result;
     }
 
-    public static int countVowels(String s) {
-        int count = 0;
-
-        char[] vowels = { 'a', 'o', 'u', 'å', 'e', 'i', 'y', 'ä', 'ö' };
-
-        for (int i = 0; i < s.length(); i++) {
-            for (int x = 0; x < vowels.length; x++) {
-                if (s.charAt(i) == vowels[x]) {
-                    count++;;
-                }
-            }
-        }
-
-        return count;
-    }
 }

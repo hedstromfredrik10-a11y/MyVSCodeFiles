@@ -119,7 +119,6 @@ public class KochStepByStep extends JPanel {
         infoLabel.setText("  Bas: " + mode + "   Nivå: " + currentOrder + " / " + maxOrder + "   ");
     }
 
-    // ====== Ritpanel ======
     private class DrawingCanvas extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
@@ -131,14 +130,11 @@ public class KochStepByStep extends JPanel {
             int w = getWidth();
             int h = getHeight();
 
-            // 1) Bygg figuren i modell-koordinater (ungefärlig storlek ~ 1 enhet)
             Path2D path = buildPath(currentOrder, baseShape);
 
-            // 2) Räkna bounding box
             Rectangle2D bounds = path.getBounds2D();
 
-            // 3) Skala + centrera så att ALLT får plats
-            double margin = 20.0; // pixlar
+            double margin = 20.0; 
             double availW = Math.max(1, w - 2 * margin);
             double availH = Math.max(1, h - 2 * margin);
 
@@ -146,7 +142,6 @@ public class KochStepByStep extends JPanel {
             double scaleY = availH / bounds.getHeight();
             double scale = Math.min(scaleX, scaleY);
 
-            // Centrerings-translation (efter skalning)
             double tx = (w - scale * bounds.getWidth()) / 2.0 - scale * bounds.getX();
             double ty = (h - scale * bounds.getHeight()) / 2.0 - scale * bounds.getY();
 
