@@ -8,17 +8,14 @@ public class KochStepByStep extends JPanel {
         LINE, TRIANGLE
     }
 
-    // ====== Inställningar ======
     private int currentOrder = 0;
     private final int maxOrder = 7;
     private boolean running = false;
     private BaseShape baseShape = BaseShape.TRIANGLE;
 
-    // Tecken som styr vilken sida "puckeln" hamnar på
-    private final int signForLine = -1; // linje: puckel "uppåt"
-    private final int signForTriangle = +1; // triangel: puckel "utåt" (om den blir inåt: byt till -1)
+    private final int signForLine = -1;
+    private final int signForTriangle = +1;
 
-    // ====== UI ======
     private final Timer timer;
     private final JButton startPauseBtn = new JButton("Start");
     private final JButton nextBtn = new JButton("Nästa steg");
@@ -134,7 +131,7 @@ public class KochStepByStep extends JPanel {
 
             Rectangle2D bounds = path.getBounds2D();
 
-            double margin = 20.0; 
+            double margin = 20.0;
             double availW = Math.max(1, w - 2 * margin);
             double availH = Math.max(1, h - 2 * margin);
 
@@ -155,49 +152,35 @@ public class KochStepByStep extends JPanel {
         }
     }
 
-    // ====== Bygg Path i modell-koordinater ======
     private Path2D buildPath(int order, BaseShape shape) {
         Path2D.Double path = new Path2D.Double();
 
         if (shape == BaseShape.LINE) {
             int sign = signForLine;
 
-            // Modell: linje från (0,0) till (1,0)
             path.moveTo(0, 0);
             PointD end = kochToPath(path, order, 0, 0, 0.0, 1.0, sign);
-            // end används inte här, men finns om du vill
 
         } else {
             int sign = signForTriangle;
 
-            // Modell: liksidig triangel med sida 1
-            // A=(0,0), B=(1,0), C=(0.5, -sqrt(3)/2) (uppåt i matte-koord)
-            // OBS: vi bryr oss inte om y-upp/ner här, för vi skalar/centrerar sen ändå.
             double len = 1.0;
 
             double ax = 0, ay = 0;
             path.moveTo(ax, ay);
 
-            // A->B
             PointD b = kochToPath(path, order, ax, ay, 0.0, len, sign);
 
-            // B->C (120° upp-vänster)
             PointD c = kochToPath(path, order, b.x, b.y, -2.0 * Math.PI / 3.0, len, sign);
 
-            // C->A (120° ner-vänster)
             PointD a2 = kochToPath(path, order, c.x, c.y, 2.0 * Math.PI / 3.0, len, sign);
 
-            // Stäng om det råkar bli en mikroskopisk float-diff
             path.closePath();
         }
 
         return path;
     }
 
-    /**
-     * Lägger till Koch-segment i en Path2D genom att successivt lineTo(...).
-     * Returnerar slutpunkten.
-     */
     private PointD kochToPath(Path2D.Double path, int n,
             double x, double y,
             double angleRad, double len,
