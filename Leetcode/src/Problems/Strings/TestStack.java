@@ -1,34 +1,37 @@
 package Problems.Strings;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
 public class TestStack {
     public static void main(String[] args) {
-        int[] input = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        Stack<Integer> stack = new Stack<>();
-        List<Integer> result = new ArrayList<>();
+        List<Integer> result = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
 
-        for (Integer integer : input) {
-            stack.push(integer);
-        }
-
-        System.out.println(reverseList(result, stack));
+        System.out.println(reverseList(result));
 
     }
 
-    public static List<Integer> reverseList(List<Integer> result, Stack<Integer> stack) {
+    public static List<Integer> reverseList(List<Integer> result) {
 
-        if (stack.isEmpty()) {
-            return result;
+        Stack<Integer> stack = new Stack<>();
+
+        for (Integer integer : result) {
+            stack.push(integer);
+        }
+        // List<Integer> resultList = new ArrayList<>();
+
+        // for (Integer integer : stack) {
+        // resultList.add(integer);
+        // }
+
+        for (int i = 0; i < result.size(); i++) {
+            int element = stack.pop();
+            result.set(i, element);
         }
 
-        int temp = stack.pop();
-
-        result.add(temp);
-
-        return reverseList(result, stack);
+        return result;
 
     }
 }
