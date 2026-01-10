@@ -43,10 +43,9 @@ public class CurrencyConverter {
 
             System.out.print("Ange antal in-value: ");
             double choosenValue = Double.parseDouble(scan.nextLine());
-            System.out.println(choosenValue + " " + input + " konverterat till " + output + " blir "
-                    + convert(input, output, choosenValue) + " " + output);
+            System.out.println(choosenValue + " " + input + " konverterat till " + output + " blir " + convert(input, output, choosenValue) + " " + output);
 
-            System.out.print("Vill du köra igen? :(J/n): ");
+            System.out.print("Vill du köra igen? (J/n): ");
             continueConversion = scan.nextLine();
         }
 
