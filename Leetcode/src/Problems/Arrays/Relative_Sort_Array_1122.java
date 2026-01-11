@@ -33,37 +33,22 @@ public class Relative_Sort_Array_1122 {
 
     public static int[] relativeSortArray(int[] arr1, int[] arr2) {
         List<Integer> inList = new ArrayList<>();
-        List<Integer> notInList = new ArrayList<>();
-
-        for (int i = 0; i < arr1.length; i++) {
-            int data = arr1[i];
-            if (IntStream.of(arr2).anyMatch(num -> num == data)) {
-                inList.add(data);
-            } else {
-                notInList.addAll(notInList);
-            }
-        }
-
-        int[] result = new int[arr1.length];
-        int idx = 0;
+        Arrays.sort(arr1);
 
         for (int i = 0; i < arr2.length; i++) {
-            for (int j = 0; j < arr1.length; j++) {
-                if (arr2[i] == arr1[j]) {
-                    result[idx] = arr1[j];
-                    idx++;
-                }
-            }
-        }
-        for (int i = 0; i < arr1.length; i++) {
-            int element = arr1[i];
-            boolean findElement = IntStream.of(arr2).anyMatch(num -> num == element);
-            if (findElement == false) {
-                result[idx] = element;
-                idx++;
+            int data = arr2[i];
+            if (IntStream.of(arr1).anyMatch(num -> num == data)) {
+                Arrays.stream(arr1).filter(n -> n == data).forEach(inList::add);
             }
         }
 
-        return result;
+        for (int i = 0; i < arr1.length; i++) {
+            int checkElementExists = arr1[i];
+            if (!IntStream.of(arr2).anyMatch(n -> n == checkElementExists)) {
+                inList.add(checkElementExists);
+            }
+        }
+
+        return inList.stream().mapToInt(Integer::intValue).toArray();
     }
 }
