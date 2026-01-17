@@ -5,7 +5,7 @@ public class CurrencyConverter {
         Scanner scan = new Scanner(System.in);
         String chooseCurrency = "SEK, EUR, USD";
         System.out.println("Välj bland följande:" + "\n" + chooseCurrency);
-        String continueConversion = "";
+        String continueConversion = "J";
         String[] validInputs = { "EUR", "SEK", "USD" };
 
         while (!continueConversion.equalsIgnoreCase("n")) {
@@ -77,28 +77,21 @@ public class CurrencyConverter {
             case "SEKUSD":
                 conversionValue = CONVERT_MATRIX[0][2];
                 break;
-
             case "EURSEK":
                 conversionValue = CONVERT_MATRIX[1][0];
                 break;
-
             case "EURUSD":
                 conversionValue = CONVERT_MATRIX[1][2];
                 break;
-
             case "USDSEK":
                 conversionValue = CONVERT_MATRIX[2][0];
                 break;
-
             case "USDEUR":
                 conversionValue = CONVERT_MATRIX[2][1];
                 break;
-
             default:
                 break;
         }
         return conversionValue;
-
     }
-
 }

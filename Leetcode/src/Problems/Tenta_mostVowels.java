@@ -1,7 +1,9 @@
 package Problems;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Tenta_mostVowels {
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class Tenta_mostVowels {
         System.out.println(countVowels(a));
 
         List<Integer> list = new LinkedList<>();
-        
+
     }
 
     public static int countVowels(String s) {
