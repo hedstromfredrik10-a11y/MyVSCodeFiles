@@ -50,5 +50,6 @@ public class Relative_Sort_Array_1122 {
         }
 
         return inList.stream().mapToInt(Integer::intValue).toArray();
+
     }
 }
