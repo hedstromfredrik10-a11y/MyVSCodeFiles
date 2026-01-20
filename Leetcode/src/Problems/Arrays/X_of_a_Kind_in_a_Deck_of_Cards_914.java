@@ -36,27 +36,39 @@ public class X_of_a_Kind_in_a_Deck_of_Cards_914 {
     }
 
     public static boolean hasGroupsSizeX(int[] deck) {
-
+        Arrays.sort(deck);
+        List<Integer> partitionSizes = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < deck.length; i++) {
-            map.put(deck[i], map.getOrDefault(deck[i], 0) + 1);
+        if (deck.length == 1) {
+            return false;
         }
 
-        int ans = 0;
+        partitionSizes.add(IntStream.of(deck).filter(n -> n == deck[0]).toArray().length);
+        map.put(deck[0], IntStream.of(deck).filter(n -> n == deck[0]).toArray().length);
 
-        for (int key : map.keySet()) {
-            ans = gcd(ans, map.get(key));
+        for (int i = 0, j = 1; i < deck.length - 1; i++, j++) {
+            if (deck[i] != deck[j]) {
+                int temp = deck[j];
+                int[] temporaryArray = IntStream.of(deck).filter(n -> n == temp).toArray();
+                partitionSizes.add(temporaryArray.length);
+                map.put(deck[j], temporaryArray.length);
+            }
         }
 
-        return ans >= 2 ? true : false;
+        int sizeZero = partitionSizes.get(0);
 
-    }
+        if (deck.length % sizeZero == 0()
 
-    public static int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
+        Collections.sort(partitionSizes);
+
+        if (!partitionSizes.stream().allMatch(n -> n == partitionSizes.get(0))) {
+            for (int i = 0; i < deck.length; i++) {
+                if () {
+
+                }
+            }
         }
-        return gcd(b, a % b);
+        return true;
     }
 }

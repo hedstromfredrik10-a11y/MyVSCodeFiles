@@ -16,39 +16,43 @@ public class SumUpToElement {
         System.out.println(Arrays.toString(arr));
     }
 
+    // public static int sumUpTo(List<Integer> list, int stopNumber) {
+    // int index = 0;
+    // boolean indexFound = false;
+    // for (int i = 0; i < list.size(); i++) {
+    // if (list.get(i) == stopNumber) {
+    // index = i;
+    // indexFound = true;
+    // }
+    // }
+
+    // if (!indexFound) {
+    // index = list.size() - 1;
+    // }
+
+    // return sum(list, index);
+
+    // }
+
+    // public static int sum(List<Integer> list, int index) {
+    // if (index < 0) {
+    // return 0;
+    // }
+
+    // if (list.size() == 0) {
+    // return 0;
+    // }
+
+    // if (list.size() == 1) {
+    // return list.get(0);
+    // }
+
+    // return list.get(index) + sum(list, index - 1);
+    // }
+
     public static int sumUpTo(List<Integer> list, int stopNumber) {
-        int index = 0;
-        boolean indexFound = false;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == stopNumber) {
-                index = i;
-                indexFound = true;
-            }
-        }
-
-        if (!indexFound) {
-            index = list.size() - 1;
-        }
-
-        return sum(list, index);
-
-    }
-
-    public static int sum(List<Integer> list, int index) {
-        if (index < 0) {
-            return 0;
-        }
-
-        if (list.size() == 0) {
-            return 0;
-        }
-
-        if (list.size() == 1) {
-            return list.get(0);
-        }
-
-        return list.get(index) + sum(list, index - 1);
+        int sum = list.removeFirst();
+        
+        return sum + sumUpTo(list, stopNumber);
     }
 }
-
-
