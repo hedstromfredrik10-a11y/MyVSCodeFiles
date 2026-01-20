@@ -58,8 +58,6 @@ public class X_of_a_Kind_in_a_Deck_of_Cards_914 {
 
         int sizeZero = partitionSizes.get(0);
 
-        if (deck.length % sizeZero == 0()
-
         Collections.sort(partitionSizes);
 
         if (!partitionSizes.stream().allMatch(n -> n == partitionSizes.get(0))) {
