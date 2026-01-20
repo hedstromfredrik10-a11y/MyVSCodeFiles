@@ -2,7 +2,6 @@ package Problems.Arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 // Given two arrays of integers nums and index. Your task is to create target array under the following rules:
