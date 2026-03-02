@@ -19,7 +19,7 @@ public class CurrencyConverter {
                         check = true;
                     }
                 }
-                if (check == false) {
+                if (!check) {
                     System.out.print("Felaktigt värde: " + input + "\n" + "Välj igen: ");
                 }
 
@@ -35,7 +35,7 @@ public class CurrencyConverter {
                         check = true;
                     }
                 }
-                if (check == false) {
+                if (!check) {
                     System.out.print("Felaktigt värde: " + output + "\n" + "Välj igen: ");
                 }
 
